@@ -4,7 +4,8 @@
   "description": "Eslint rule for checking that should-promised assertions return",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test --recursive --reporter spec",
+    "test-cov": "istanbul cover _mocha -- --recursive --reporter dot"
   },
   "peerDependencies": {
     "eslint": ">=0.23.0 <1.0.0"
@@ -12,6 +13,7 @@
   "devDependencies": {
     "eslint": "^0.23.0",
     "eslint-tester": "^0.8.0",
+    "is-my-json-valid": "~2.12.0",
     "istanbul": "^0.3.15",
     "mocha": "^2.2.5"
   },
@@ -19,10 +21,16 @@
     "type": "git",
     "url": "https://github.com/dbrockman/eslint-plugin-should-promised.git"
   },
-  "author": "",
+  "author": "David Brockman Smoliansky @dbrckmn",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dbrockman/eslint-plugin-should-promised/issues"
   },
-  "homepage": "https://github.com/dbrockman/eslint-plugin-should-promised"
+  "homepage": "https://github.com/dbrockman/eslint-plugin-should-promised",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "should",
+    "promise"
+  ]
 }
