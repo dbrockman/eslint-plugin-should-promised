@@ -1,3 +1,9 @@
+[![NPM Version](https://img.shields.io/npm/v/eslint-plugin-should-promised.svg?style=flat)](https://www.npmjs.org/package/eslint-plugin-should-promised)
+[![Build Status](https://img.shields.io/travis/dbrockman/eslint-plugin-should-promised.svg?style=flat)](https://travis-ci.org/dbrockman/eslint-plugin-should-promised)
+[![Coverage Status](https://img.shields.io/coveralls/dbrockman/eslint-plugin-should-promised.svg?style=flat)](https://coveralls.io/r/dbrockman/eslint-plugin-should-promised)
+[![Peer Dependencies](http://img.shields.io/david/peer/dbrockman/eslint-plugin-should-promised.svg?style=flat)](https://david-dm.org/dbrockman/eslint-plugin-should-promised#info=peerDependencies&view=table)
+
+
 # eslint-plugin-should-promised
 
 Eslint rule for checking that should-promised assertions return

@@ -4,13 +4,14 @@
   "description": "Eslint rule for checking that should-promised assertions return",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test --recursive --reporter spec",
-    "test-cov": "istanbul cover _mocha -- --recursive --reporter dot"
+    "test": "istanbul cover _mocha -- --recursive --reporter spec",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "peerDependencies": {
     "eslint": ">=0.23.0 <1.0.0"
   },
   "devDependencies": {
+    "coveralls": "~2.11.2",
     "eslint": "^0.23.0",
     "eslint-tester": "^0.8.0",
     "is-my-json-valid": "~2.12.0",
