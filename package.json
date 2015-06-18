@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-should-promised",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Eslint rule for checking that should-promised assertions return",
   "main": "index.js",
   "scripts": {
