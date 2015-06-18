@@ -49,7 +49,7 @@ The following patterns are considered warnings:
 ```js
 describe('forgot to return the promise', function() {
   it('warn when not returning the promise from should.be.fulfilled', function() {
-    thing.fn().should.be.fulfilled;
+    thing.fn().should.be.fulfilled();
   });
 
   it('warn when not returning the promise from should.eventually', function() {
@@ -63,7 +63,7 @@ These patterns would not be considered warnings:
 ```js
 describe('forgot to return the promise', function() {
   it('warn when not returning the promise from should.be.fulfilled', function() {
-    return thing.fn().should.be.fulfilled;
+    return thing.fn().should.be.fulfilled();
   });
 
   it('warn when not returning the promise from should.eventually', function() {
