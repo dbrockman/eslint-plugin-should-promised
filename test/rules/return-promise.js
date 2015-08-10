@@ -1,12 +1,12 @@
 'use strict';
 
-var linter = require('eslint').linter,
-    ESLintTester = require('eslint-tester'),
-    eslintTester = new ESLintTester(linter),
-    expectedErrorMessage = 'Promise assertion must return.';
+var RuleTester = require('eslint').RuleTester;
+var rule = require('../../lib/rules/return-promise.js');
+var tester = new RuleTester();
+var expectedErrorMessage = 'Promise assertion must return.';
 
 
-eslintTester.addRuleTest('lib/rules/return-promise', {
+tester.run('return-promise', rule, {
 
   valid: [
     'var test = function() { return fn().should.be.Promise(); }',
@@ -29,63 +29,63 @@ eslintTester.addRuleTest('lib/rules/return-promise', {
   invalid: [
     {
       code: 'var test = function() { fn().should.be.Promise(); }',
-      errors: [{ message: expectedErrorMessage, column: 39, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 40, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should.be["Promise"](); }',
-      errors: [{ message: expectedErrorMessage, column: 39, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 40, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should.be.fulfilled(); }',
-      errors: [{ message: expectedErrorMessage, column: 39, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 40, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should.be["fulfilled"](); }',
-      errors: [{ message: expectedErrorMessage, column: 39, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 40, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should.fulfilledWith(1); }',
-      errors: [{ message: expectedErrorMessage, column: 36, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 37, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should["fulfilledWith"](1); }',
-      errors: [{ message: expectedErrorMessage, column: 36, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 37, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should.be.rejected(); }',
-      errors: [{ message: expectedErrorMessage, column: 39, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 40, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should.be["rejected"](); }',
-      errors: [{ message: expectedErrorMessage, column: 39, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 40, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should.rejectedWith(1); }',
-      errors: [{ message: expectedErrorMessage, column: 36, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 37, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should["rejectedWith"](1); }',
-      errors: [{ message: expectedErrorMessage, column: 36, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 37, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should.finally.eql(1); }',
-      errors: [{ message: expectedErrorMessage, column: 36, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 37, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should["finally"].eql(1); }',
-      errors: [{ message: expectedErrorMessage, column: 36, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 37, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should.eventually.eql(1); }',
-      errors: [{ message: expectedErrorMessage, column: 36, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 37, line: 1 }]
     },
     {
       code: 'var test = function() { fn().should["eventually"].eql(1); }',
-      errors: [{ message: expectedErrorMessage, column: 36, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 37, line: 1 }]
     },
     {
       code: 'fn().should.be.fulfilled();',
-      errors: [{ message: expectedErrorMessage, column: 15, line: 1 }]
+      errors: [{ message: expectedErrorMessage, column: 16, line: 1 }]
     }
   ]
 
