@@ -8,7 +8,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "peerDependencies": {
-    "eslint": ">=0.8.0"
+    "eslint": ">=1.10.0"
   },
   "devDependencies": {
     "coveralls": "2.11.4",
