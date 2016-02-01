@@ -24,6 +24,8 @@ tester.run('return-promise', rule, {
     'var test = function() { return fn().should.eventually.eql(1); }',
     'var test = function() { return fn().should["eventually"].eql(1); }',
     'var test = function() { return fn().then(function(){}).should.be.fulfilled(); }',
+    { code: 'var test = () => { return fn().should.be.fulfilled(); }', ecmaFeatures: { arrowFunctions: true } },
+    { code: 'var test = () => fn().should.be.fulfilled();', ecmaFeatures: { arrowFunctions: true } },
   ],
 
   invalid: [
@@ -86,7 +88,12 @@ tester.run('return-promise', rule, {
     {
       code: 'fn().should.be.fulfilled();',
       errors: [{ message: expectedErrorMessage, column: 16, line: 1 }]
-    }
-  ]
+    },
+    {
+      code: 'var test = () => { fn().should.be.fulfilled(); }',
+      errors: [{ message: expectedErrorMessage, column: 35, line: 1 }],
+      ecmaFeatures: { arrowFunctions: true }
+    },
+  ],
 
 });
