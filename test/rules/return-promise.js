@@ -3,7 +3,7 @@
 var RuleTester = require('eslint').RuleTester;
 var rule = require('../../lib/rules/return-promise.js');
 var tester = new RuleTester();
-var expectedErrorMessage = 'Promise assertion must return.';
+var expectedErrorMessage = 'Promise assertion must return or await.';
 
 
 tester.run('return-promise', rule, {
@@ -26,6 +26,9 @@ tester.run('return-promise', rule, {
     'var test = function() { return fn().then(function(){}).should.be.fulfilled(); }',
     { code: 'var test = () => { return fn().should.be.fulfilled(); }', ecmaFeatures: { arrowFunctions: true } },
     { code: 'var test = () => fn().should.be.fulfilled();', ecmaFeatures: { arrowFunctions: true } },
+    { code: 'test(function * () { yield fn().should.be.fulfilled(); });', ecmaFeatures: { generators: true } },
+    { code: 'test(async function() { await fn().should.be.rejected(); });', parser: 'babel-eslint' },
+    { code: 'test(async () => { await fn().should.be.rejected(); });', parser: 'babel-eslint' },
   ],
 
   invalid: [
@@ -93,6 +96,16 @@ tester.run('return-promise', rule, {
       code: 'var test = () => { fn().should.be.fulfilled(); }',
       errors: [{ message: expectedErrorMessage, column: 35, line: 1 }],
       ecmaFeatures: { arrowFunctions: true }
+    },
+    {
+      code: 'test(async function() { fn().should.be.rejected(); });',
+      errors: [{ message: expectedErrorMessage, column: 40, line: 1 }],
+      parser: 'babel-eslint',
+    },
+    {
+      code: 'test(async () => { fn().should.be.rejected(); });',
+      errors: [{ message: expectedErrorMessage, column: 35, line: 1 }],
+      parser: 'babel-eslint',
     },
   ],
 
