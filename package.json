@@ -11,12 +11,12 @@
     "eslint": ">=0.8.0"
   },
   "devDependencies": {
-    "babel-eslint": "4.1.8",
-    "coveralls": "2.11.6",
-    "eslint": "1.10.3",
-    "is-my-json-valid": "2.12.4",
-    "istanbul": "0.4.2",
-    "mocha": "2.4.5"
+    "babel-eslint": "^4.1.8",
+    "coveralls": "^2.11.6",
+    "eslint": "^2.0.0",
+    "is-my-json-valid": "^2.12.4",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5"
   },
   "repository": {
     "type": "git",

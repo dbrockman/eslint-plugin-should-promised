@@ -24,9 +24,9 @@ tester.run('return-promise', rule, {
     'var test = function() { return fn().should.eventually.eql(1); }',
     'var test = function() { return fn().should["eventually"].eql(1); }',
     'var test = function() { return fn().then(function(){}).should.be.fulfilled(); }',
-    { code: 'var test = () => { return fn().should.be.fulfilled(); }', ecmaFeatures: { arrowFunctions: true } },
-    { code: 'var test = () => fn().should.be.fulfilled();', ecmaFeatures: { arrowFunctions: true } },
-    { code: 'test(function * () { yield fn().should.be.fulfilled(); });', ecmaFeatures: { generators: true } },
+    { code: 'var test = () => { return fn().should.be.fulfilled(); }', parserOptions: { ecmaVersion: 6 } },
+    { code: 'var test = () => fn().should.be.fulfilled();', parserOptions: { ecmaVersion: 6 } },
+    { code: 'test(function * () { yield fn().should.be.fulfilled(); });', parserOptions: { ecmaVersion: 6 } },
     { code: 'test(async function() { await fn().should.be.rejected(); });', parser: 'babel-eslint' },
     { code: 'test(async () => { await fn().should.be.rejected(); });', parser: 'babel-eslint' },
   ],
@@ -95,7 +95,7 @@ tester.run('return-promise', rule, {
     {
       code: 'var test = () => { fn().should.be.fulfilled(); }',
       errors: [{ message: expectedErrorMessage, column: 35, line: 1 }],
-      ecmaFeatures: { arrowFunctions: true }
+      parserOptions: { ecmaVersion: 6 }
     },
     {
       code: 'test(async function() { fn().should.be.rejected(); });',
