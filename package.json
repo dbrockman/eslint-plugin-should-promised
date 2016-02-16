@@ -11,7 +11,7 @@
     "eslint": ">=0.8.0"
   },
   "devDependencies": {
-    "babel-eslint": "^4.1.8",
+    "babel-eslint": "^5.0.0",
     "coveralls": "^2.11.6",
     "eslint": "^2.0.0",
     "is-my-json-valid": "^2.12.4",
