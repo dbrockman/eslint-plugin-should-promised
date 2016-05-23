@@ -16,7 +16,7 @@
     "eslint": "^2.4.0",
     "is-my-json-valid": "^2.12.4",
     "istanbul": "^0.4.2",
-    "mocha": "^2.4.5"
+    "mocha": "^2.5.0"
   },
   "repository": {
     "type": "git",
