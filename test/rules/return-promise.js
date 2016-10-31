@@ -3,7 +3,7 @@
 var RuleTester = require('eslint').RuleTester;
 var rule = require('../../lib/rules/return-promise.js');
 var tester = new RuleTester();
-var expectedErrorMessage = 'Promise assertion must return or await.';
+var expectedErrorMessage = 'Promise assertion must return, await or yield.';
 
 
 tester.run('return-promise', rule, {
