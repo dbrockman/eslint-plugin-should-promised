@@ -3,19 +3,22 @@
   "version": "1.0.8",
   "description": "Eslint rule for checking that should-promised assertions return",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "scripts": {
-    "test": "istanbul cover _mocha -- --recursive --reporter spec",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "test": "jest --coverage"
   },
   "peerDependencies": {
     "eslint": ">=0.8.0"
   },
   "devDependencies": {
-    "coveralls": "^2.11.6",
     "eslint": "^3.9.0",
-    "is-my-json-valid": "^2.12.4",
-    "istanbul": "^0.4.2",
-    "mocha": "^3.1.2"
+    "jest": "^16.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
