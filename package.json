@@ -1,22 +1,29 @@
 {
   "name": "eslint-plugin-should-promised",
-  "version": "1.0.8",
   "description": "Eslint rule for checking that should-promised assertions return",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "scripts": {
-    "test": "istanbul cover _mocha -- --recursive --reporter spec",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "test": "jest --coverage",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "peerDependencies": {
     "eslint": ">=0.8.0"
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.0-beta.6",
-    "coveralls": "^2.11.6",
-    "eslint": "^2.4.0",
-    "is-my-json-valid": "^2.12.4",
-    "istanbul": "^0.4.2",
-    "mocha": "^2.4.5"
+    "eslint": "^3.9.0",
+    "jest": "^16.0.2",
+    "semantic-release": "^4.3.5"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "engines": {
+    "node": ">=4",
+    "npm": ">=3"
   },
   "repository": {
     "type": "git",
