@@ -1,9 +1,10 @@
 'use strict';
 
-var RuleTester = require('eslint').RuleTester;
-var rule = require('../../lib/rules/return-promise.js');
-var tester = new RuleTester();
-var expectedErrorMessage = 'Promise assertion must return, await or yield.';
+const RuleTester = require('eslint').RuleTester;
+const rule = require('../../lib/rules/return-promise');
+
+const tester = new RuleTester();
+const expectedErrorMessage = 'Promise assertion must return, await or yield.';
 
 
 tester.run('return-promise', rule, {
