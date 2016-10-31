@@ -27,8 +27,8 @@ tester.run('return-promise', rule, {
     { code: 'var test = () => { return fn().should.be.fulfilled(); }', parserOptions: { ecmaVersion: 6 } },
     { code: 'var test = () => fn().should.be.fulfilled();', parserOptions: { ecmaVersion: 6 } },
     { code: 'test(function * () { yield fn().should.be.fulfilled(); });', parserOptions: { ecmaVersion: 6 } },
-    { code: 'test(async function() { await fn().should.be.rejected(); });', parser: 'babel-eslint' },
-    { code: 'test(async () => { await fn().should.be.rejected(); });', parser: 'babel-eslint' },
+    { code: 'test(async function() { await fn().should.be.rejected(); });', parserOptions: { ecmaVersion: 8 } },
+    { code: 'test(async () => { await fn().should.be.rejected(); });', parserOptions: { ecmaVersion: 8 } },
   ],
 
   invalid: [
@@ -100,12 +100,12 @@ tester.run('return-promise', rule, {
     {
       code: 'test(async function() { fn().should.be.rejected(); });',
       errors: [{ message: expectedErrorMessage, column: 40, line: 1 }],
-      parser: 'babel-eslint',
+      parserOptions: { ecmaVersion: 8 },
     },
     {
       code: 'test(async () => { fn().should.be.rejected(); });',
       errors: [{ message: expectedErrorMessage, column: 35, line: 1 }],
-      parser: 'babel-eslint',
+      parserOptions: { ecmaVersion: 8 },
     },
   ],
 
