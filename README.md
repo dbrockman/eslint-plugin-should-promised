@@ -6,6 +6,8 @@
 
 # eslint-plugin-should-promised
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dbrockman/eslint-plugin-should-promised.svg)](https://greenkeeper.io/)
+
 Eslint rule for checking that should-promised assertions return
 
 
