@@ -11,7 +11,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "peerDependencies": {
-    "eslint": ">=0.8.0"
+    "eslint": ">=1.10.0"
   },
   "devDependencies": {
     "eslint": "^3.9.0",
