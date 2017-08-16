@@ -16,7 +16,7 @@
   "devDependencies": {
     "eslint": "^3.9.0",
     "jest": "^18.1.0",
-    "semantic-release": "^6.3.2"
+    "semantic-release": "^7.0.1"
   },
   "jest": {
     "testEnvironment": "node"
